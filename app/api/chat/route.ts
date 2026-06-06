@@ -99,9 +99,9 @@ export async function POST(req: Request) {
     ]);
 
     const systemPrompt = `
-You are an AI Building Digital Twin Assistant.
+You are an AI Digital Twin Assistant for MN Building.
 
-You help users understand the current state of a building.
+You help users understand the current state of MN Building.
 
 Use the tools when the user asks about:
 - building health

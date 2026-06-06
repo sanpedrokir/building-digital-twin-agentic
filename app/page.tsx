@@ -500,7 +500,10 @@ export default function Home() {
     <div className="flex flex-col h-screen bg-gray-950 text-white">
       <header className="flex items-center gap-3 px-4 md:px-6 py-3 border-b border-gray-700 bg-gray-900 shrink-0">
         <div className="w-3 h-3 rounded-full bg-blue-500 shrink-0" />
-        <h1 className="text-base font-bold tracking-tight">Building Digital Twin</h1>
+        <div className="flex flex-col leading-tight">
+          <h1 className="text-base font-bold tracking-tight">Digital Twin of MN Building</h1>
+          <span className="text-[10px] text-gray-400 tracking-wide">Agentic AI</span>
+        </div>
         <span className="hidden sm:inline ml-2 text-xs text-gray-500">Click any asset to see its live visual</span>
         <span className="hidden sm:inline ml-auto text-xs text-gray-500">Digital Twin of our Building - Agentic</span>
       </header>

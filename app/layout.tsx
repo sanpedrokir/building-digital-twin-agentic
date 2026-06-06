@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Building Digital Twin",
-  description: "AI-powered building digital twin dashboard",
+  title: "Digital Twin of MN Building",
+  description: "AI-powered digital twin dashboard for MN Building",
 };
 
 export default function RootLayout({
