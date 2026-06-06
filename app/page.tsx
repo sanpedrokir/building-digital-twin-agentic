@@ -418,7 +418,7 @@ function ChatPanel({ messages, onSend, loading }: { messages: Message[]; onSend:
           <span className="text-gray-500 text-lg">💬</span>
           <input
             className="flex-1 bg-transparent text-white placeholder-gray-500 focus:outline-none text-sm"
-            placeholder='e.g. "Simulate if Lift B fails" or "Show faulty assets"'
+            placeholder='e.g. "What is the building health score?" or "Show faulty assets"'
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSend()}
