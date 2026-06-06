@@ -64,22 +64,28 @@ const STATUS_MAP: Record<string, string> = {
 const updateAssetStatusTool = tool(
   async ({ asset_name, status }) => {
     const normalized = STATUS_MAP[status.toLowerCase().trim()] ?? status.toLowerCase().trim();
+    // Fuzzy match: exact → strip spaces/dashes → partial LIKE (in order of precision)
     const result = await pool.query(
-      "UPDATE building_assets SET status = $1, last_updated = CURRENT_TIMESTAMP WHERE LOWER(asset_name) = LOWER($2) RETURNING *",
+      `UPDATE building_assets SET status = $1, last_updated = CURRENT_TIMESTAMP
+       WHERE LOWER(asset_name) = LOWER($2)
+          OR LOWER(REPLACE(REPLACE(asset_name, ' ', ''), '-', '')) = LOWER(REPLACE(REPLACE($2, ' ', ''), '-', ''))
+          OR LOWER(asset_name) ILIKE '%' || LOWER($2) || '%'
+       RETURNING *`,
       [normalized, asset_name]
     );
 
     if (result.rows.length === 0) {
-      return "Asset not found.";
+      return `Asset not found for "${asset_name}". Use get_building_status to see the exact asset names available.`;
     }
 
-    return `Updated ${result.rows[0].asset_name} to ${result.rows[0].status}`;
+    const updated = result.rows.map((r: any) => r.asset_name).join(", ");
+    return `Updated ${updated} to ${normalized}`;
   },
   {
     name: "update_asset_status",
-    description: "Update the status of a building asset. Valid status values: operational, faulty, maintenance",
+    description: "Update the status of a building asset. Fuzzy matches asset names — spaces, dashes and capitalisation differences are handled automatically.",
     schema: z.object({
-      asset_name: z.string(),
+      asset_name: z.string().describe("Asset name or partial name, e.g. 'Board Room Camera', 'Boardroom camera', 'Meeting Room A Projector'"),
       status: z.string().describe("Use: operational, faulty, or maintenance"),
     }),
   }
