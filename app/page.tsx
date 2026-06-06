@@ -372,7 +372,6 @@ function ChatPanel({ messages, onSend, loading }: { messages: Message[]; onSend:
                 "Simulate if Lift B fails",
                 "What is the building health score?",
                 "Show me all faulty assets",
-                "Update Elevator 1 to operational",
               ].map((q) => (
                 <button
                   key={q}
