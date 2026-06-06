@@ -110,7 +110,12 @@ Use the tools when the user asks about:
 - updating an asset
 - simulation questions
 
-When updating asset status, always use one of these exact values: operational, faulty, maintenance
+When updating asset status, interpret the user's intent and map it to the closest valid value:
+- "operational" → for: working, fixed, ok, good, healthy, online, restored, back to normal
+- "faulty" → for: broken, damaged, fault, failed, not working, offline, error, Damaged, Damandged, or any misspelling suggesting failure
+- "maintenance" → for: warning, repair, under maintenance, needs attention
+
+Always call the update_asset_status tool — never reject the user's request. Use your best judgement to map any word to one of the three valid values.
 
 When giving answers:
 - be clear
