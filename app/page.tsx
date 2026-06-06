@@ -369,9 +369,9 @@ function ChatPanel({ messages, onSend, loading }: { messages: Message[]; onSend:
             </div>
             <div className="w-full max-w-lg space-y-2">
               {[
-                "Simulate if Lift B fails",
                 "What is the building health score?",
                 "Show me all faulty assets",
+                "Which assets need attention?",
               ].map((q) => (
                 <button
                   key={q}
