@@ -505,7 +505,7 @@ export default function Home() {
           <span className="text-[10px] text-gray-400 tracking-wide">Agentic AI</span>
         </div>
         <span className="hidden sm:inline ml-2 text-xs text-gray-500">Click any asset to see its live visual</span>
-        <span className="hidden sm:inline ml-auto text-xs text-gray-500">Digital Twin of our Building - Agentic</span>
+        <span className="hidden sm:inline ml-auto text-xs text-gray-500">Digital Twin of MN Building - Agentic</span>
       </header>
 
       {/* Desktop: side-by-side | Mobile: single panel, toggled by tab bar */}
