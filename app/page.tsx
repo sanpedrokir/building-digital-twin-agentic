@@ -502,7 +502,7 @@ export default function Home() {
         <div className="w-3 h-3 rounded-full bg-blue-500 shrink-0" />
         <h1 className="text-base font-bold tracking-tight">Building Digital Twin</h1>
         <span className="hidden sm:inline ml-2 text-xs text-gray-500">Click any asset to see its live visual</span>
-        <span className="hidden sm:inline ml-auto text-xs text-gray-500">AI-Powered Facility Monitor</span>
+        <span className="hidden sm:inline ml-auto text-xs text-gray-500">Digital Twin of our Building - Agentic</span>
       </header>
 
       {/* Desktop: side-by-side | Mobile: single panel, toggled by tab bar */}
